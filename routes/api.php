@@ -8,12 +8,12 @@ Route::post(
     [ServicoController::class, 'Servico']
 );
 
-Route::post(
+Route::get(
     'nome',
     [ServicoController::class, 'pesquisarPorNome']
 );
 
-Route::post(
+Route::get(
     'descricao',
     [ServicoController::class, 'pesquisarPoDescricao']
 );
