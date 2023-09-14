@@ -13,6 +13,11 @@ Route::post(
     [ServicoController::class, 'pesquisarPorNome']
 );
 
+Route::post(
+    'descricao',
+    [ServicoController::class, 'pesquisarPoDescricao']
+);
+
 Route::delete(
     'delete/{id}',
     [ServicoController::class, 'excluir']
