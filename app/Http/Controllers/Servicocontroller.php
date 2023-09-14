@@ -6,8 +6,9 @@ use App\Http\Requests\ServicoFormRequest;
 use App\Models\Servico;
 use Illuminate\Http\Request;
 
-class Servicocontroller extends Controller
+class ServicoController extends Controller
 {
+    
     public function Servico(ServicoFormRequest $request)
     {
         $servico = Servico::create([
