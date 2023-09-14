@@ -24,10 +24,10 @@ class ServicoFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required|max:80|min:5|unique:servico,nome',
+            'nome' => 'required|max:80|min:5|unique:servicos,nome',
             'descricao' => 'required|max:200|min:10',
-            'duracao' => 'required|numeric:servico,duracao',
-            'preco' => 'required|decimal:servico,preco',
+            'duracao' => 'required|numeric',
+            'preco' => 'required|decimal:2',
         ];
     }
     public function failedValidation(Validator $validator)
@@ -51,7 +51,7 @@ class ServicoFormRequest extends FormRequest
             'duracao.required'=> 'O campo duração é obrigátorio',
             'duracao.numeric'=>'O campo duração deve ter apenas números',
             'preco.required'=>'O campo preço é obrigátorio',
-            'preco.decimal'=>'O campo preço só é permitido números'
+            'preco.decimal'=>'O campo preço só é permitido números decimais'
         ];
 }
 }
