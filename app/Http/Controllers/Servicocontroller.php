@@ -24,23 +24,6 @@ class Servicocontroller extends Controller
         ]);
 
     }
-    public function pesquisarPorId($id)
-    {
-        $servico = Servico::find($id);
-
-        if ($servico == null) {
-            return response()->json([
-                'status' => false,
-                'message' => "Serviço não encontrado"
-            ]);
-        }
-
-        return response()->json([
-            'status' => true,
-            'data' => $servico
-        ]);
-    }
-
     public function pesquisarPorNome(Request $request)
     {
         $servico = Servico::where('nome', 'like', '%' . $request->nome . '%')->get();
