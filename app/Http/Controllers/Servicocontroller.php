@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ServicoFormRequest;
+use App\Http\Requests\ServicoFormRequestUpdate;
 use App\Models\Servico;
 use Illuminate\Http\Request;
 
@@ -79,36 +80,35 @@ class ServicoController extends Controller
         ]);
     }
 
-    public function update(Request $request)
-    {
-        $servico = Servico::find($request->id);
-        if (!isset($servico)) {
+    public function update(ServicoFormRequestUpdate $request){
+        $servico = servico::find($request->id);
+    
+        if(!isset($servico)){
             return response()->json([
-                'status' => false,
-                'message' => "servico não encontrado"
+                "status" => false,
+                "message" => "Serviço não encontrado"
             ]);
-        
         }
-        if (isset($request->nome)) {
+    
+        if(isset($request->nome)){
             $servico->nome = $request->nome;
         }
-
-        if (isset($request->descricao)) {
+        if(isset($request->descricao)){
             $servico->descricao = $request->descricao;
         }
-
-        if (isset($request->duracao)) {
+        if(isset($request->duracao)){
             $servico->duracao = $request->duracao;
         }
-
-        if (isset($request->preco)) {
+        if(isset($request->preco)){
             $servico->preco = $request->preco;
         }
+    
         $servico->update();
-
+    
         return response()->json([
-            'status' => true,
-            'message' => "servico atualizado"
+            "status" => false,
+            "message" => "Serviço atualizado"
         ]);
+    
     }
-}
+    }
