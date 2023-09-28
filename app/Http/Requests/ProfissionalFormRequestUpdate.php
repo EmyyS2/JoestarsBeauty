@@ -25,9 +25,9 @@ class ProfissionalFormRequestUpdate extends FormRequest
     {
         return [
             'nome' => 'required|max:120|min:5', 
-            'celular' => 'required|max:11|min:10|unique:clientes,celular,'. $this->id,
-            'email' => 'required|email|unique:clientes,email,'. $this->id,
-            'cpf' => 'required|max:11|min:11|unique:clientes,cpf,'. $this->id,
+            'celular' => 'required|max:11|min:10|unique:profissionals,celular,'. $this->id,
+            'email' => 'required|email|unique:profissionals,email,'. $this->id,
+            'cpf' => 'required|max:11|min:11|unique:profissionals,cpf,'. $this->id,
             'dataNascimento' => 'required|date', 
             'cidade' => 'required|max:120',
             'estado' => 'required|max:2|min:2',

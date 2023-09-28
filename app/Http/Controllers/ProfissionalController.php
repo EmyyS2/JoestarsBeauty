@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfissionalFormRequest;
 use App\Http\Requests\ProfissionalFormRequestUpdate;
-use App\Http\Requests\ProfissonalFormRequest;
 use App\Models\Profissional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class ProfissionalController extends Controller
 {
-    public function Profissional(ProfissonalFormRequest $request)
+    public function Profissional(ProfissionalFormRequest $request)
     {
         $Profissional = Profissional::create([
             'nome' => $request->nome,

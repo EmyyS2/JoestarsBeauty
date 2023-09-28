@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class ProfissonalFormRequest extends FormRequest
+class ProfissionalFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,9 +25,9 @@ class ProfissonalFormRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:120|min:5',
-            'celular' => 'required|max:11|min:10|unique:clientes,celular',
-            'email' => 'required|email|unique:clientes,email',
-            'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
+            'celular' => 'required|max:11|min:10|unique:profissionals,celular',
+            'email' => 'required|email|unique:profissionals,email',
+            'cpf' => 'required|max:11|min:11|unique:profissionals,cpf',
             'dataNascimento' => 'required|date', 
             'cidade' => 'required|max:120',
             'estado' => 'required|max:2|min:2',
@@ -87,7 +87,7 @@ class ProfissonalFormRequest extends FormRequest
             'complemento.max' => 'o campo complemento deve contar no maximo 150 caracteres',
             'senha.required' => 'a senha obrigatorio',
             'salario.required'=>'o salário é obrigatório',
-            'salario.decimal'=>'O campo preço só é permitido números decimais'
+            'salario.decimal'=>'O campo salário só é permitido números decimais'
         ];
     }
 }
