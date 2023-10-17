@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
@@ -31,3 +32,9 @@ route::get('Profissional/email', [ProfissionalController::class, 'pesquisarPorEm
 route::delete('Profissional/delete/{id}', [ProfissionalController::class, 'excluir']);
 route::put('Profissional/update', [ProfissionalController::class, 'update']);
 
+
+//Agenda
+route::post('agenda', [AgendaController::class, 'agenda']);
+route::delete('deleteA/{id}', [AgendaController::class, 'excluir']);
+route::put('updateA', [AgendaController::class, 'update']);
+route::get('visualizar', [AgendaController::class, 'retornarTodos']);
