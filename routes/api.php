@@ -9,28 +9,28 @@ use Illuminate\Support\Facades\Route;
 
 //serviços
 Route::post('servico',[ServicoController::class, 'Servico']);
-Route::get('servico/nome',[ServicoController::class, 'pesquisarPorNome']);
-Route::get('servico/descricao',[ServicoController::class, 'pesquisarPoDescricao']);
+Route::post('servico/nome',[ServicoController::class, 'pesquisarPorNome']);
+Route::post('servico/descricao',[ServicoController::class, 'pesquisarPoDescricao']);
 Route::delete('servico/delete/{id}',[ServicoController::class, 'excluir']);
 Route::put('servico/update',[ServicoController::class, 'update']);
 route::get('servico/visualizar', [ServicoController::class, 'retornarTodos']);
 
 //Clientes
 route::post('clientes', [ClienteController::class, 'clientes']);
-route::get('clientes/nome', [ClienteController::class, 'pesquisarPorNome']);
-route::get('clientes/cpf', [ClienteController::class, 'pesquisarPorCpf']);
-route::get('clientes/celular', [ClienteController::class, 'pesquisarPorCelular']);
-route::get('clientes/email', [ClienteController::class, 'pesquisarPorEmail']);
+route::post('clientes/nome', [ClienteController::class, 'pesquisarPorNome']);
+route::post('clientes/cpf', [ClienteController::class, 'pesquisarPorCpf']);
+route::post('clientes/celular', [ClienteController::class, 'pesquisarPorCelular']);
+route::post('clientes/email', [ClienteController::class, 'pesquisarPorEmail']);
 route::delete('clientes/delete/{id}', [ClienteController::class, 'excluir']);
 route::put('clientes/update', [ClienteController::class, 'update']);
 route::get('clientes/visualizar', [ClienteController::class, 'retornarTodos']);
 
 //Profissional
 route::post('Profissional', [ProfissionalController::class, 'Profissional']);
-route::get('Profissional/nome', [ProfissionalController::class, 'pesquisarPorNome']);
-route::get('Profissional/cpf', [ProfissionalController::class, 'pesquisarPorCpf']);
-route::get('Profissional/celular', [ProfissionalController::class, 'pesquisarPorCelular']);
-route::get('Profissional/email', [ProfissionalController::class, 'pesquisarPorEmail']);
+route::post('Profissional/nome', [ProfissionalController::class, 'pesquisarPorNome']);
+route::post('Profissional/cpf', [ProfissionalController::class, 'pesquisarPorCpf']);
+route::post('Profissional/celular', [ProfissionalController::class, 'pesquisarPorCelular']);
+route::post('Profissional/email', [ProfissionalController::class, 'pesquisarPorEmail']);
 route::delete('Profissional/delete/{id}', [ProfissionalController::class, 'excluir']);
 route::put('Profissional/update', [ProfissionalController::class, 'update']);
 route::get('Profissional/visualizar', [ProfissionalController::class, 'retornarTodos']);

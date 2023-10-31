@@ -30,9 +30,9 @@ class ProfissionalController extends Controller
             'salario' => $request->salario,
         ]);
         return response()->json([
-            "success" => true,
-            "message" => "Profissional cadastrado com sucesso",
-            "data" => $Profissional
+            'success' => true,
+            'message' => "Profissional cadastrado com sucesso",
+            'data' => $Profissional
         ], 200);
     }
     public function pesquisarPorNome(Request $request)
@@ -129,46 +129,46 @@ class ProfissionalController extends Controller
         }
 
         if (isset($request->nome)) {
-            $Profissional->nome = $request->nome;
+            $Profissional->nome= $request->nome;
         }
         if (isset($request->celular)) {
-            $Profissional->celular = $request->celular;
+            $Profissional->celular= $request->celular;
         }
         if (isset($request->email)) {
-            $Profissional->email = $request->email;
+            $Profissional->email= $request->email;
         }
         if (isset($request->cpf)) {
-            $Profissional->cpf = $request->cpf;
+            $Profissional->cpf= $request->cpf;
         }
         if (isset($request->dataNascimento)) {
-            $Profissional->dataNascimento = $request->dataNascimento;
+            $Profissional->dataNascimento= $request->dataNascimento;
         }
         if (isset($request->cidade)) {
-            $Profissional->cidade = $request->cidade;
+            $Profissional->cidade= $request->cidade;
         }
         if (isset($request->estado)) {
-            $Profissional->estado = $request->estado;
+            $Profissional->estado= $request->estado;
         }
         if (isset($request->pais)) {
-            $Profissional->pais = $request->pais;
+            $Profissional->pais= $request->pais;
         }
         if (isset($request->rua)) {
-            $Profissional->rua = $request->rua;
+            $Profissional->rua= $request->rua;
         }
         if (isset($request->numero)) {
-            $Profissional->numero = $request->numero;
+            $Profissional->numero= $request->numero;
         }
         if (isset($request->bairro)) {
-            $Profissional->bairro = $request->bairro;
+            $Profissional->bairro= $request->bairro;
         }
         if (isset($request->cep)) {
-            $Profissional->cep = $request->cep;
+            $Profissional->cep= $request->cep;
         }
         if (isset($request->complemento)) {
-            $Profissional->complemento = $request->complemento;
+            $Profissional->complemento= $request->complemento;
         }
         if (isset($request->password)) {
-            $Profissional->password = $request->password;
+            $Profissional->password= $request->password;
         }
 
         $Profissional->update();
