@@ -20,9 +20,9 @@ class ServicoController extends Controller
 
         ]);
         return response()->json([
-            "sucess" => true,
-            "message" => "Servico Cadastrado com sucesso",
-            "data" => $servico
+            'sucess' => true,
+            'message' => "Servico Cadastrado com sucesso",
+            'data' => $servico
         ]);
     }
     public function pesquisarPorNome(Request $request)
@@ -59,7 +59,13 @@ class ServicoController extends Controller
             'message' => 'Não há resultados para pesquisa.'
         ]);
     }
-
+    public function retornarTodos(){
+        $servico = Servico::all();
+        return response()->json([
+            'status'=> true,
+            'data'=> $servico
+        ]);
+    }
 
 
     public function excluir($id)
@@ -85,8 +91,8 @@ class ServicoController extends Controller
     
         if(!isset($servico)){
             return response()->json([
-                "status" => false,
-                "message" => "Serviço não encontrado"
+                'status' => false,
+                'message' => "Serviço não encontrado"
             ]);
         }
     
@@ -106,8 +112,8 @@ class ServicoController extends Controller
         $servico->update();
     
         return response()->json([
-            "status" => false,
-            "message" => "Serviço atualizado"
+            'status' => false,
+            'message' => "Serviço atualizado"
         ]);
     
     }

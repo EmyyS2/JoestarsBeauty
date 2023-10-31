@@ -26,7 +26,7 @@ class ProfissionalController extends Controller
             'bairro' => $request->bairro,
             'cep' => $request->cep,
             'complemento' => $request->complemento,
-            'senha' => Hash::make($request->senha),
+            'password' => Hash::make($request->senha),
             'salario' => $request->salario,
         ]);
         return response()->json([
@@ -41,12 +41,12 @@ class ProfissionalController extends Controller
         if (count($Profissional) > 0) {
             return response()->json([
                 'status' => true,
-                'data ' => $Profissional
+                'data' => $Profissional
             ]);
         }
         return response()->json([
             'status' => false,
-            'message' => 'não há resultados para pesquisa.'
+            'message' => "não há resultados para pesquisa."
         ]);
     }
 
@@ -56,7 +56,7 @@ class ProfissionalController extends Controller
         if (count($Profissional) > 0) {
             return response()->json([
                 'status' => true,
-                'data ' => $Profissional
+                'data' => $Profissional
             ]);
         }
         return response()->json([
@@ -70,12 +70,19 @@ class ProfissionalController extends Controller
         if (count($Profissional) > 0) {
             return response()->json([
                 'status' => true,
-                'data ' => $Profissional
+                'data' => $Profissional
             ]);
         }
         return response()->json([
             'status' => false,
             'message' => 'não há resultados para pesquisa.'
+        ]);
+    }
+    public function retornarTodos(){
+        $Profissional = Profissional::all();
+        return response()->json([
+            'status'=> true,
+            'data'=> $Profissional
         ]);
     }
     public function pesquisarPorEmail(Request $request)
@@ -84,7 +91,7 @@ class ProfissionalController extends Controller
         if (count($Profissional) > 0) {
             return response()->json([
                 'status' => true,
-                'data ' => $Profissional
+                'data' => $Profissional
             ]);
         }
         return response()->json([
@@ -116,8 +123,8 @@ class ProfissionalController extends Controller
 
         if (!isset($Profissional)) {
             return response()->json([
-                "status" => false,
-                "message" => "Profissional não encontrado"
+                'status' => false,
+                'message' => "Profissional não encontrado"
             ]);
         }
 
@@ -160,15 +167,15 @@ class ProfissionalController extends Controller
         if (isset($request->complemento)) {
             $Profissional->complemento = $request->complemento;
         }
-        if (isset($request->senha)) {
-            $Profissional->senha = $request->senha;
+        if (isset($request->password)) {
+            $Profissional->password = $request->password;
         }
 
         $Profissional->update();
 
         return response()->json([
-            "status" => false,
-            "message" => "Profissional atualizado"
+            'status' => false,
+            'message' => "Profissional atualizado"
         ]);
     }
 }

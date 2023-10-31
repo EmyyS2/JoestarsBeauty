@@ -24,7 +24,7 @@ class Profissional extends Model
         'bairro',
         'cep',
         'complemento',
-        'senha',
+        'password',
         'salario'
     ];
 }

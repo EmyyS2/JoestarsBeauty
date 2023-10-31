@@ -37,7 +37,7 @@ class clienteFormRequestUpdate extends FormRequest
             'bairro' => 'required|max:100',
             'cep' => 'required|max:8|min:8',
             'complemento' => 'max:150',
-            'senha' => 'required',
+            'password' => 'required',
         ];
     }
 
@@ -85,7 +85,7 @@ class clienteFormRequestUpdate extends FormRequest
             'cep.min' => 'o campo cep deve contar no minimo 8 caracteres',
             'complemento.required' => 'o campo complemento é obrigatorio',
             'complemento.max' => 'o campo complemento deve contar no maximo 150 caracteres',
-            'senha.required' => 'a senha obrigatorio'
+            'password.required' => 'a senha obrigatorio'
         ];
     }
 }

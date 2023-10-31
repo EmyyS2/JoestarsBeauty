@@ -26,13 +26,13 @@ class clientecontroller extends Controller
                 'bairro'=> $request ->bairro,
                 'cep'=> $request ->cep,
                 'complemento'=> $request ->complemento,
-                'senha'=> Hash::make($request->senha),
+                'password'=> Hash::make($request->senha),
             ]);
     
             return response()->json([
-                "success" => true,
-                "message" => "Cliente cadastrado com sucesso",
-                "data" => $Cliente
+                'success' => true,
+                'message' => "Cliente cadastrado com sucesso",
+                'data' => $Cliente
             ], 200);
     }
     public function pesquisarPorNome(Request $request){
@@ -40,21 +40,28 @@ class clientecontroller extends Controller
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente
+            'data'=> $Cliente
         ]);
     }
+    
     return response()->json([
         'status' => false,
         'message' => 'não há resultados para pesquisa.'
     ]);
     }
-    
+    public function retornarTodos(){
+        $Cliente = Cliente::all();
+        return response()->json([
+            'status'=> true,
+            'data'=> $Cliente
+        ]);
+    }
     public function pesquisarPorCpf(Request $request){
         $Cliente =  Cliente::where('cpf', 'like', '%'. $request->cpf . '%')->get();
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente 
+            'data'=> $Cliente 
         ]);
     }
     return response()->json([
@@ -67,7 +74,7 @@ class clientecontroller extends Controller
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente
+            'data'=> $Cliente
         ]);
     }
     return response()->json([
@@ -80,7 +87,7 @@ class clientecontroller extends Controller
         if(count($Cliente) > 0){
         return response()->json([
             'status'=> true,
-            'data '=> $Cliente
+            'data'=> $Cliente
         ]);
     }
     return response()->json([
@@ -93,8 +100,8 @@ class clientecontroller extends Controller
         $Cliente = Cliente::find($id);
         if(!isset($Cliente)){
             return response()->json([
-                "status" => false,
-                "message" => "Cliente não encontrado"
+                'status' => false,
+                'message' => "Cliente não encontrado"
             ]);
         }
         $Cliente->delete();
@@ -110,8 +117,8 @@ class clientecontroller extends Controller
     
         if(!isset($Cliente)){
             return response()->json([
-                "status" => false,
-                "message" => "Cliente não encontrado"
+                'status' => false,
+                'message' => "Cliente não encontrado"
             ]);
         }
     
@@ -154,15 +161,15 @@ class clientecontroller extends Controller
         if(isset($request->complemento)){
             $Cliente->complemento = $request->complemento;
         }
-        if(isset($request->senha)){
+        if(isset($request->password)){
             $Cliente->senha = $request->senha;
         }
     
         $Cliente->update();
     
         return response()->json([
-            "status" => false,
-            "message" => "Cliente atualizado"
+            'status' => false,
+            'message' => "Cliente atualizado"
         ]);
     }
     }

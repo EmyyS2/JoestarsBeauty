@@ -37,7 +37,7 @@ class ProfissionalFormRequest extends FormRequest
             'bairro' => 'required|max:100',
             'cep' => 'required|max:8|min:8',
             'complemento' => 'max:150',
-            'senha' => 'required',
+            'password' => 'required',
             'salario'=>'required|decimal:2',
         ];
     }
@@ -85,7 +85,7 @@ class ProfissionalFormRequest extends FormRequest
             'cep.max' => 'o campo cep deve contar no maximo 8 caracteres',
             'cep.min' => 'o campo cep deve contar no minimo 8 caracteres',
             'complemento.max' => 'o campo complemento deve contar no maximo 150 caracteres',
-            'senha.required' => 'a senha obrigatorio',
+            'password.required' => 'a senha obrigatorio',
             'salario.required'=>'o salário é obrigatório',
             'salario.decimal'=>'O campo salário só é permitido números decimais'
         ];
