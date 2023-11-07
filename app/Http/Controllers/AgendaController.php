@@ -28,7 +28,7 @@ public function retornarTodos(){
     $agendas = Agenda::all();
     return response()->json([
         'status'=> true,
-        'data '=> $agendas
+        'data'=> $agendas
     ]);
 }
 public function excluir($id){

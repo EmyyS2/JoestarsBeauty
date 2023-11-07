@@ -14,6 +14,7 @@ Route::post('servico/descricao',[ServicoController::class, 'pesquisarPoDescricao
 Route::delete('servico/delete/{id}',[ServicoController::class, 'excluir']);
 Route::put('servico/update',[ServicoController::class, 'update']);
 route::get('servico/visualizar', [ServicoController::class, 'retornarTodos']);
+Route::get('servico/{id}',[ServicoController::class, 'pesquisarPorId']);
 
 //Clientes
 route::post('clientes', [ClienteController::class, 'clientes']);
@@ -24,6 +25,8 @@ route::post('clientes/email', [ClienteController::class, 'pesquisarPorEmail']);
 route::delete('clientes/delete/{id}', [ClienteController::class, 'excluir']);
 route::put('clientes/update', [ClienteController::class, 'update']);
 route::get('clientes/visualizar', [ClienteController::class, 'retornarTodos']);
+Route::get('clientes/{id}',[ClienteController::class, 'pesquisarPorId']);
+
 
 //Profissional
 route::post('Profissional', [ProfissionalController::class, 'Profissional']);
@@ -34,6 +37,7 @@ route::post('Profissional/email', [ProfissionalController::class, 'pesquisarPorE
 route::delete('Profissional/delete/{id}', [ProfissionalController::class, 'excluir']);
 route::put('Profissional/update', [ProfissionalController::class, 'update']);
 route::get('Profissional/visualizar', [ProfissionalController::class, 'retornarTodos']);
+Route::get('Profissional/{id}',[ProfissionalController::class, 'pesquisarPorId']);
 
 
 //Agenda

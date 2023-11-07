@@ -56,6 +56,21 @@ class clientecontroller extends Controller
             'data'=> $Cliente
         ]);
     }
+
+    public function pesquisarPorId($id){
+        $Cliente = Cliente::find($id);
+        if($Cliente == null){
+            return response()->json([
+                'status'=> false,
+                'message' => "Serviço não encontrado"
+            ]);     
+        }
+        return response()->json([
+            'status'=> true,
+            'data'=> $Cliente
+        ]);
+    }
+    
     public function pesquisarPorCpf(Request $request){
         $Cliente =  Cliente::where('cpf', 'like', '%'. $request->cpf . '%')->get();
         if(count($Cliente) > 0){
@@ -82,6 +97,7 @@ class clientecontroller extends Controller
         'message' => 'não há resultados para pesquisa.'
     ]);
     }
+    
     public function pesquisarPorEmail(Request $request){
         $Cliente =  Cliente::where('email', 'like', '%'. $request->email . '%')->get();
         if(count($Cliente) > 0){

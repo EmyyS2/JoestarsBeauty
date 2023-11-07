@@ -36,12 +36,14 @@ class ServicoController extends Controller
                 'data' => $servico
             ]);
         }
+        
 
         return response()->json([
             'status' => false,
             'message' => 'Não há resultados para pesquisa.'
         ]);
     }
+    
     public function pesquisarPoDescricao(Request $request)
     {
         $servico = Servico::where('descricao', 'like', '%' . $request->descricao . '%')->get();
@@ -67,6 +69,19 @@ class ServicoController extends Controller
         ]);
     }
 
+    public function pesquisarPorId($id){
+        $servico = servico::find($id);
+        if($servico == null){
+            return response()->json([
+                'status'=> false,
+                'message' => "Serviço não encontrado"
+            ]);     
+        }
+        return response()->json([
+            'status'=> true,
+            'data'=> $servico
+        ]);
+    }
 
     public function excluir($id)
     {
