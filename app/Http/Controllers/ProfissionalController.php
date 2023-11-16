@@ -79,7 +79,27 @@ class ProfissionalController extends Controller
         ]);
     }
 
-    
+    public function redefinirSenha(Request $request)
+    {
+        $Cliente =  Profissional::where('email', $request->email)->first();
+        
+        if (!isset($Profissional)) {
+            return response()->json([
+                'status' => false,
+                'message' => "Profissional não encontrado"
+            ]);
+        }
+
+        $Profissional->password = Hash::make($Cliente->cpf);
+        $Profissional->update();    
+
+        return response()->json([
+            'status' => false,
+            'message' => "Sua senha foi atualizada"
+        ]);
+    }
+
+
     public function pesquisarPorCelular(Request $request)
     {
         $Profissional =  Profissional::where('celular', 'like', '%' . $request->celular . '%')->get();
