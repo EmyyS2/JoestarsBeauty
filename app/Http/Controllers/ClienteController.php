@@ -127,6 +127,17 @@ class clientecontroller extends Controller
             'message' => 'Cliente excluido com sucesso'
         ]);
     }
+
+    public function redefinirSenha(Request $request){
+        $Cliente =  Cliente::where('email', $request->email)->first();
+        if(!isset($Cliente)){
+            return response()->json([
+                'status' => false,
+                'message' => "Cliente não encontrado"
+        ]);
+        
+    }  
+}
     
     public function update(ClienteFormRequestUpdate $request){
         $Cliente = Cliente::find($request->id);

@@ -26,6 +26,7 @@ route::delete('clientes/delete/{id}', [ClienteController::class, 'excluir']);
 route::put('clientes/update', [ClienteController::class, 'update']);
 route::get('clientes/visualizar', [ClienteController::class, 'retornarTodos']);
 Route::get('clientes/{id}',[ClienteController::class, 'pesquisarPorId']);
+Route::get('clientes/senha',[ClienteController::class, 'redefinirSenha']);
 
 
 //Profissional
