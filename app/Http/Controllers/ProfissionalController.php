@@ -81,7 +81,7 @@ class ProfissionalController extends Controller
 
     public function redefinirSenha(Request $request)
     {
-        $Cliente =  Profissional::where('email', $request->email)->first();
+        $Profissional =  Profissional::where('email', $request->email)->first();
         
         if (!isset($Profissional)) {
             return response()->json([
@@ -90,7 +90,7 @@ class ProfissionalController extends Controller
             ]);
         }
 
-        $Profissional->password = Hash::make($Cliente->cpf);
+        $Profissional->password = Hash::make($Profissional->cpf);
         $Profissional->update();    
 
         return response()->json([
