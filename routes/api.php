@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
+use App\Http\Controllers\AgendaProfissionaiscontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,8 +41,10 @@ route::get('Profissional/visualizar', [ProfissionalController::class, 'retornarT
 Route::get('Profissional/pesquisar/{id}',[ProfissionalController::class, 'pesquisarPorId']);
 Route::post('Profissional/senha/redefinir',[ProfissionalController::class, 'redefinirSenha']);
 
-//Agenda
-route::post('agenda', [AgendaController::class, 'agenda']);
-route::delete('deleteA/{id}', [AgendaController::class, 'excluir']);
-route::put('updateA', [AgendaController::class, 'update']);
-route::get('visualizar', [AgendaController::class, 'retornarTodos']);
+
+route::post('agendamento', [AgendaProfissionaiscontroller::class, 'cadastroAgenda']);
+route::post('nome/agendamento', [AgendaProfissionaiscontroller::class, 'pesquisarPorServico']);
+route::delete('delete/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'excluir']);
+route::put('update/agendamento', [AgendaProfissionaiscontroller::class, 'update']);
+route::get('visualizar/agendamento', [AgendaProfissionaiscontroller::class, 'retornarTodos']);
+route::get('find/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'pesquisarPorId']);
