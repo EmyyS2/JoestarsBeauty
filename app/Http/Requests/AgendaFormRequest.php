@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 class AgendaFormRequest extends FormRequest
 {
     /**
@@ -23,7 +23,7 @@ class AgendaFormRequest extends FormRequest
     {
         return [
             'profissional_id'=>'required',
-            'dataHora'=>'required|date',
+            'dataHora'=>'required',
         ]; 
     }
     public function failedValidation(Validator $validator)

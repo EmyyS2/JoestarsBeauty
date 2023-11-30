@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfissionalFormRequest;
 use App\Http\Requests\ProfissionalFormRequestUpdate;
 use App\Models\Profissional;
+use App\Models\AgendaProfissionais;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -145,6 +146,13 @@ class ProfissionalController extends Controller
                 "message" => "Profissional não encontrado"
             ]);
         }
+        $profissional_agendamento = AgendaProfissionais::where('profissional_id', $id)->get(); 
+        if(count($profissional_agendamento) > 0){ 
+            return response()->json([
+                'status' => false, 
+                'message' => 'Não foi possível excluir pois o profissional possui agendamentos registrados.'
+            ]);
+        }
         $Profissional->delete();
 
         return response()->json([
@@ -152,6 +160,7 @@ class ProfissionalController extends Controller
             'message' => 'Profissional excluido com sucesso'
         ]);
     }
+
 
     public function update(ProfissionalFormRequestUpdate $request)
     {

@@ -11,10 +11,8 @@ class AgendaProfissionaiscontroller extends Controller
 
     public function cadastroAgenda(AgendaFormRequest $request){
         $agendamento =AgendaProfissionais::create([
-           
             'profissional_id' => $request->profissional_id,
-            'dataHora' => $request->dataHora
-            
+            'dataHora' => $request->dataHora            
         ]);
         return response()->json([
             "success" => true,
