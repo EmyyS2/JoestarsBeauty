@@ -47,16 +47,16 @@ class AgendaProfissionaiscontroller extends Controller
     }
 
 
-    public function buscarPorData(Request $request)
+  public function buscarPorData(Request $request)
     {
 
 
-        $agendamento = AgendaProfissionais::where('datahORA', 'like', '%' . $request->dataHora . '%')->get();
+        $agendas = Agenda::where('datahORA', 'like', '%' . $request->dataHora . '%')->get();
 
-        if (count($agendamento) > 0) {
+        if (count($agendas) > 0) {
             return response()->json([
                 'status' => true,
-                'data' => $agendamento
+                'data' => $agendas
             ]);
         }
 
@@ -66,11 +66,6 @@ class AgendaProfissionaiscontroller extends Controller
             'data' => "Data não encontrado"
         ]);
     }
-
-
-
-
-    
 
 
     //pesquisar por serviço
