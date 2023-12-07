@@ -1,18 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use App\Http\Requests\AgendaFormRequest;
 use App\Models\AgendaProfissionais;
 use Illuminate\Http\Request;
+use DateTime;
 
 class AgendaProfissionaiscontroller extends Controller
 {
 
     public function cadastroAgenda(AgendaFormRequest $request){
+        $dataHora = new DateTime($request->dataHora);
+        $dataAtual = Carbon::now('America/Sao_Paulo');
+        if ($dataHora < $dataAtual) {
+            return response()->json([
+                "success" => false,
+                "message" => "Não é possível cadastrar um horário antes do dia atual"
+            ], 400);
+        }
+
         $agendamento =AgendaProfissionais::create([
+           
             'profissional_id' => $request->profissional_id,
-            'dataHora' => $request->dataHora            
+            'dataHora' => $request->dataHora 
+            
         ]);
         return response()->json([
             "success" => true,
@@ -20,6 +32,7 @@ class AgendaProfissionaiscontroller extends Controller
             "data" => $agendamento
         ], 200);
     }
+
 
 
     //visualizar todos
@@ -47,23 +60,17 @@ class AgendaProfissionaiscontroller extends Controller
     }
 
 
-  public function buscarPorData(AgendaFormRequest $request)
-    {
-
-
-        $agendamento = AgendaProfissionais::where('datahORA', 'like', '%' . $request->dataHora . '%')->get();
-
+    public function pesquisarPorAgendamento(Request $request){
+        $agendamento = AgendaProfissionais::where('profissional_id', 'like', '%' . $request->profissional_id . '%')->get();
         if (count($agendamento) > 0) {
             return response()->json([
                 'status' => true,
                 'data' => $agendamento
             ]);
         }
-
-
         return response()->json([
             'status' => false,
-            'data' => "Data não encontrado"
+            'data' => "Servico não encontrado"
         ]);
     }
 

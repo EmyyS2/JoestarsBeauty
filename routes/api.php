@@ -43,7 +43,7 @@ Route::post('Profissional/senha/redefinir',[ProfissionalController::class, 'rede
 
 
 route::post('agendamento', [AgendaProfissionaiscontroller::class, 'cadastroAgenda']);
-route::post('nome/agendamento', [AgendaProfissionaiscontroller::class, 'pesquisarPorServico']);
+route::post('data/agendamento', [AgendaProfissionaiscontroller::class, 'pesquisarPorAgendamento']);
 route::delete('delete/agendamento/{id}', [AgendaProfissionaiscontroller::class, 'excluir']);
 route::put('update/agendamento', [AgendaProfissionaiscontroller::class, 'update']);
 route::get('visualizar/agendamento', [AgendaProfissionaiscontroller::class, 'retornarTodos']);

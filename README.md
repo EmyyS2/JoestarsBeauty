@@ -1,6 +1,6 @@
-# JoestrasBeauty API com PHP e Laravel
+# JoestarsBeauty API com PHP e Laravel
 
-Este projeto contém um site feito por estudantes da escola SESI, para aprofundar seus conhecimentos nas linguagens PHP e Json
+Este projeto contém um site de uma barbearia fictícia feito por estudantes da escola SESI, para aprofundar seus conhecimentos nas linguagens PHP e Json
 
 ## Como utilizar este repositório
 
@@ -30,7 +30,7 @@ code .
 
 # Insomnia
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https)
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](httpshttps://insomnia.rest/run/?label=JoestarsBeauty&uri=127.0.0.1%3A8000%2Fapi%2Fclientes" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia">
 
 
 ## Licença
